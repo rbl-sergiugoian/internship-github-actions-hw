@@ -2,7 +2,7 @@ name: CD
 run-name: Car Parts ${{ github.event.inputs.version || '1.0.0'}}
 
 on:
-  workflow-dispatch:
+  workflow_dispatch:
     inputs:
       version:
         description: "semver format"
