@@ -91,7 +91,7 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/test", () => "test");
 
 app.UseSwagger();
 app.UseSwaggerUI(options =>
