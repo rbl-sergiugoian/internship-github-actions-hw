@@ -1,0 +1,28 @@
+name: CI - build, test
+
+on:
+  push: ["**"]
+  pull_request: ["main"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: action/checkout/@v4
+
+      - name: setup dotnet env
+        uses actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: restore packages
+        run: dotnet restore CarParts.slnx
+
+      - name: build
+        run: dotnet build CarParts.slnx --no-restore --configuration Release
+
+      - name: unit tests
+        run: dotnet test CarParts.slnx --no-build --configuration Release
+    
