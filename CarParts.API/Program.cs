@@ -24,7 +24,9 @@ builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddSingleton<IJwtUtils, JwtUtils>();
 
 builder.Services.AddControllers();
-builder.Services.AddProblemDetails();
+
+
+//builder.Services.AddProblemDetails();
 
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //            .AddJwtBearer(options =>
