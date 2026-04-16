@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "CarParts.ConsoleUI\\CarParts.ConsoleUI.csproj",
+        "Action": "Start",
+        "DebugTarget": "CarParts.ConsoleUI"
+      },
+      {
+        "Path": "CarParts.API\\CarParts.API.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]

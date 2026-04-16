@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="CarParts.API/CarParts.API.csproj" />
+  <Project Path="CarParts.Common/CarParts.Common.csproj" />
+  <Project Path="CarParts.ConsoleUI/CarParts.ConsoleUI.csproj" />
+  <Project Path="CarParts.DataPersistence/CarParts.DataPersistence.csproj" />
+  <Project Path="CarParts.Services/CarParts.Services.csproj" />
+  <Project Path="CarParts.UnitTests/CarParts.UnitTests.csproj" Id="738ba7cf-74e7-4cca-99e8-a14bfca0d852" />
+</Solution>
