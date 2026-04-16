@@ -19,7 +19,7 @@ jobs:
       - name: setup dotnet env
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "10.0.x"
+          dotnet-version: "8.0.x"
 
       - name: restore packages
         run: dotnet restore CarParts.slnx
