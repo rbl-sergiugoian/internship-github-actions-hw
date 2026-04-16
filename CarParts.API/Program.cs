@@ -20,8 +20,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<ICarPartsRepository, CarPartsRepository>();
 builder.Services.AddScoped<ICarPartsService, CarPartsService>();
-builder.Services.AddSingleton<IUserService, UserService>();
-builder.Services.AddSingleton<IJwtUtils, JwtUtils>();
+//builder.Services.AddSingleton<IUserService, UserService>();
+//builder.Services.AddSingleton<IJwtUtils, JwtUtils>();
 
 builder.Services.AddControllers();
 
@@ -103,7 +103,7 @@ app.UseSwaggerUI(options =>
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler();
+    //app.UseExceptionHandler();
 }
 
 app.UseHttpsRedirection();
