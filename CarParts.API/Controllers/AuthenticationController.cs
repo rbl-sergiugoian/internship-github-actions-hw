@@ -19,7 +19,6 @@ namespace CarParts.API.Controllers
         }
 
         [HttpPost("login")]
-        [AllowAnonymous]
         public IActionResult Login([FromBody] LoginRequest loginRequest)
         {
             var response = _userService.Login(loginRequest);
@@ -27,7 +26,6 @@ namespace CarParts.API.Controllers
         }
 
         [HttpPost("register")]
-        [AllowAnonymous]
         public IActionResult Register([FromBody] RegisterRequest registerRequest)
         {
             var response = _userService.Register(registerRequest);

@@ -21,7 +21,6 @@ namespace CarParts.API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var carParts = await _carPartsService.GetAllAsync();
@@ -33,7 +32,6 @@ namespace CarParts.API.Controllers
         }
 
         [HttpGet("{id:guid}")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             if (id == Guid.Empty)
@@ -51,7 +49,6 @@ namespace CarParts.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Policy = Policies.All)]
         public async Task<IActionResult> Add([FromBody] CarPartRequest carPartRequest)
         {
             if (!ModelState.IsValid)
@@ -59,13 +56,9 @@ namespace CarParts.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = HttpContext.Items["User"] as User;
-            if (user == null)
-            {
-                return Unauthorized();
-            }
+            var fakeUserId = Guid.NewGuid();
 
-            var createdCarPartDto = await _carPartsService.AddAsync(carPartRequest.ToCreateDto(user.Id));
+            var createdCarPartDto = await _carPartsService.AddAsync(carPartRequest.ToCreateDto(fakeUserId));
             var createdCarPartResponse = createdCarPartDto.ToResponse();
 
             return CreatedAtAction(
@@ -76,7 +69,6 @@ namespace CarParts.API.Controllers
         }
 
         [HttpDelete("{id:guid}")]
-        [Authorize(Policy = Policies.Admin)]
         public async Task<IActionResult> Remove([FromRoute] Guid id)
         {
             if (id == Guid.Empty)
@@ -94,7 +86,6 @@ namespace CarParts.API.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        [Authorize(Policy = Policies.All)]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] CarPartRequest carPartRequest)
         {
             if (!ModelState.IsValid)
